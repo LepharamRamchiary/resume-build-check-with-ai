@@ -1,4 +1,4 @@
-import { Link2OffIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import React from "react";
 
 const CallToAction = () => {
