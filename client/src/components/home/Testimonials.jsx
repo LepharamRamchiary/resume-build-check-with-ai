@@ -1,4 +1,5 @@
 import React from "react";
+import { BookUserIcon } from "lucide-react"
 
 const Testimonials = () => {
   const cardsData = [
@@ -104,9 +105,7 @@ const Testimonials = () => {
         {/* Top Section - Badge, Title & Description */}
         <div className="w-full max-w-5xl mx-auto mb-16 text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-blue-300 bg-indigo-500/10 border border-indigo-400/30 rounded-full px-4 py-2 w-fit mx-auto mb-6">
-            <svg width="16" height="16" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.613 8.2a.62.62 0 0 1-.553-.341.59.59 0 0 1 .076-.637l6.048-6.118a.31.31 0 0 1 .375-.069c.061.033.11.084.137.147a.3.3 0 0 1 .014.197L6.537 4.991a.59.59 0 0 0 .07.552.61.61 0 0 0 .504.257h4.276a.62.62 0 0 1 .553.341.59.59 0 0 1-.076.637l-6.048 6.119a.31.31 0 0 1-.375.067.295.295 0 0 1-.15-.344l1.172-3.61a.59.59 0 0 0-.07-.553.61.61 0 0 0-.504-.257z" stroke="#6366f1" strokeMiterlimit="5.759" strokeLinecap="round" />
-            </svg>
+            <BookUserIcon className="size-4.5 text-indigo-400" />
             <span className="font-medium">Success Stories</span>
           </div>
 
