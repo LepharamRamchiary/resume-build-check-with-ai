@@ -11,7 +11,7 @@ const Footer = () => {
         }
       `}</style>
 
-      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-20 py-16 px-6 md:px-16 lg:px-24 xl:px-32 text-[13px] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 border-t rounded-t-lg">
+      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-10 py-16 px-6 md:px-16 lg:px-24 xl:px-32 text-[13px] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 border-t rounded-t-lg">
         <div className="flex flex-wrap items-start gap-10 md:gap-[60px] xl:gap-[140px]">
           <a
             href="#"
