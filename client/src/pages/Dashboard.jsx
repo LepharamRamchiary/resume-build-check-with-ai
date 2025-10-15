@@ -82,35 +82,6 @@ const Dashboard = () => {
               </p>
             </div>
           </button>
-
-          <button className="group relative bg-white/5 backdrop-blur-sm border-2 border-white/10 hover:border-pink-500/50 rounded-2xl p-8 sm:p-10 h-56 sm:h-64 flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(236,72,153,0.3)] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            <div className="relative z-10 bg-gradient-to-br from-pink-500 to-pink-600 p-4 rounded-2xl shadow-lg group-hover:shadow-pink-500/50 group-hover:scale-110 transition-all duration-300">
-              <svg
-                className="w-8 h-8 sm:w-10 sm:h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.5}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
-                />
-              </svg>
-            </div>
-
-            <div className="relative z-10 text-center">
-              <p className="text-base sm:text-lg font-semibold text-white mb-1 group-hover:text-pink-300 transition-colors duration-300">
-                Browse Templates
-              </p>
-              <p className="text-xs sm:text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
-                Choose a design
-              </p>
-            </div>
-          </button>
         </div>
 
         <div className="mt-12 sm:mt-16">
