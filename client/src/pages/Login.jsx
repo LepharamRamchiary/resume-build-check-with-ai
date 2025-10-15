@@ -2,12 +2,21 @@ import React, { useState } from 'react';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [state, setState] = useState("login");
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login attempted with:', { email, password });
+    console.log('Form submitted:', formData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -27,116 +36,129 @@ const Login = () => {
 
         {/* Right Side - Form */}
         <div className="w-full lg:w-1/2 flex items-center justify-center">
-          <div className="w-full max-w-md bg-white/5 backdrop-blur-lg rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/10">
+          <div className="sm:w-[420px] w-full bg-white rounded-3xl p-8 sm:p-10 shadow-2xl">
             
-            <div className="flex flex-col">
-              <h2 className="text-3xl sm:text-4xl text-white font-bold tracking-tight">Login</h2>
-              <p className="text-sm text-slate-300 mt-3">Welcome back! Please Login to continue</p>
+            <div className="text-center">
+              <h1 className="text-gray-900 text-3xl sm:text-4xl font-bold tracking-tight">
+                {state === "login" ? "Login" : "Sign up"}
+              </h1>
+              <p className="text-gray-500 text-sm mt-3">
+                {state === "login" ? "Please sign in to continue" : "Create your account to get started"}
+              </p>
+            </div>
 
-              {/* Google Sign In */}
-              <button 
-                type="button" 
-                className="w-full mt-8 bg-white hover:bg-slate-50 flex items-center justify-center h-12 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                <img 
-                  src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/login/googleLogo.svg" 
-                  alt="Google logo" 
-                  className="w-20 h-20 mr-2"
+            {/* Name Input - Only for Sign Up */}
+            {state !== "login" && (
+              <div className="w-full mt-8">
+                <label htmlFor="name" className="text-gray-700 text-sm font-medium mb-2 block text-left">Name</label>
+                <div className="flex items-center w-full bg-white border border-gray-300/80 hover:border-gray-400 focus-within:border-indigo-500 h-12 rounded-full overflow-hidden px-4 gap-3 transition-all duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                    <circle cx="12" cy="8" r="5" />
+                    <path d="M20 21a8 8 0 0 0-16 0" />
+                  </svg>
+                  <input 
+                    type="text" 
+                    id="name"
+                    name="name" 
+                    placeholder="Your name" 
+                    className="bg-transparent text-gray-700 placeholder-gray-400 outline-none text-sm w-full h-full border-none ring-0" 
+                    value={formData.name} 
+                    onChange={handleChange} 
+                    required 
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Email Input */}
+            <div className={`w-full ${state === "login" ? "mt-8" : "mt-5"}`}>
+              <label htmlFor="email" className="text-gray-700 text-sm font-medium mb-2 block text-left">Email</label>
+              <div className="flex items-center w-full bg-white border border-gray-300/80 hover:border-gray-400 focus-within:border-indigo-500 h-12 rounded-full overflow-hidden px-4 gap-3 transition-all duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                </svg>
+                <input 
+                  type="email" 
+                  id="email"
+                  name="email" 
+                  placeholder="your@email.com" 
+                  className="bg-transparent text-gray-700 placeholder-gray-400 outline-none text-sm w-full h-full border-none ring-0" 
+                  value={formData.email} 
+                  onChange={handleChange} 
+                  required 
                 />
-              </button>
-
-              {/* Divider */}
-              <div className="flex items-center gap-4 w-full my-6">
-                <div className="flex-1 h-px bg-slate-600"></div>
-                <p className="text-xs text-slate-400 whitespace-nowrap">or sign in with email</p>
-                <div className="flex-1 h-px bg-slate-600"></div>
               </div>
+            </div>
 
-              {/* Email Input */}
-              <div className="w-full">
-                <label htmlFor="email" className="text-slate-300 text-sm font-medium mb-2 block">Email</label>
-                <div className="flex items-center w-full bg-white/5 border border-slate-600 hover:border-slate-500 focus-within:border-indigo-500 h-12 rounded-xl overflow-hidden px-4 gap-3 transition-all duration-200">
-                  <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M0 .55.571 0H15.43l.57.55v9.9l-.571.55H.57L0 10.45zm1.143 1.138V9.9h13.714V1.69l-6.503 4.8h-.697zM13.749 1.1H2.25L8 5.356z" fill="#94a3b8"/>
-                  </svg>
-                  <input 
-                    id="email"
-                    type="email" 
-                    placeholder="your@email.com" 
-                    className="bg-transparent text-white placeholder-slate-400 outline-none text-sm w-full h-full" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />                 
-                </div>
+            {/* Password Input */}
+            <div className="w-full mt-5">
+              <label htmlFor="password" className="text-gray-700 text-sm font-medium mb-2 block text-left">Password</label>
+              <div className="flex items-center w-full bg-white border border-gray-300/80 hover:border-gray-400 focus-within:border-indigo-500 h-12 rounded-full overflow-hidden px-4 gap-3 transition-all duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <input 
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  name="password" 
+                  placeholder="Enter your password" 
+                  className="bg-transparent text-gray-700 placeholder-gray-400 outline-none text-sm w-full h-full border-none ring-0" 
+                  value={formData.password} 
+                  onChange={handleChange} 
+                  required 
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0"
+                >
+                  {showPassword ? (
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                    </svg>
+                  ) : (
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  )}
+                </button>
               </div>
+            </div>
 
-              {/* Password Input */}
-              <div className="w-full mt-5">
-                <label htmlFor="password" className="text-slate-300 text-sm font-medium mb-2 block">Password</label>
-                <div className="flex items-center w-full bg-white/5 border border-slate-600 hover:border-slate-500 focus-within:border-indigo-500 h-12 rounded-xl overflow-hidden px-4 gap-3 transition-all duration-200">
-                  <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-                    <path d="M13 8.5c0-.938-.729-1.7-1.625-1.7h-.812V4.25C10.563 1.907 8.74 0 6.5 0S2.438 1.907 2.438 4.25V6.8h-.813C.729 6.8 0 7.562 0 8.5v6.8c0 .938.729 1.7 1.625 1.7h9.75c.896 0 1.625-.762 1.625-1.7zM4.063 4.25c0-1.406 1.093-2.55 2.437-2.55s2.438 1.144 2.438 2.55V6.8H4.061z" fill="#94a3b8"/>
-                  </svg>
-                  <input 
-                    id="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your password" 
-                    className="bg-transparent text-white placeholder-slate-400 outline-none text-sm w-full h-full" 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="text-slate-400 hover:text-slate-300 transition-colors flex-shrink-0"
-                  >
-                    {showPassword ? (
-                      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
-                      </svg>
-                    ) : (
-                      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                    )}
-                  </button>
-                </div>
-              </div>
-
-              {/* Remember Me & Forgot Password */}
-              <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mt-6 gap-3">
-                <div className="flex items-center gap-2">
-                  <input 
-                    className="w-4 h-4 rounded accent-indigo-500 cursor-pointer" 
-                    type="checkbox" 
-                    id="checkbox" 
-                  />
-                  <label className="text-sm text-slate-300 cursor-pointer select-none" htmlFor="checkbox">
-                    Remember me
-                  </label>
-                </div>
-                <button className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors">
+            {/* Forgot Password - Only for Login */}
+            {state === "login" && (
+              <div className="mt-4 text-left">
+                <button 
+                  type="button"
+                  className="text-sm text-indigo-500 hover:text-indigo-600 transition-colors"
+                >
                   Forgot password?
                 </button>
               </div>
+            )}
 
-              {/* Submit Button */}
+            {/* Submit Button */}
+            <button 
+              onClick={handleSubmit}
+              className="mt-6 w-full h-12 rounded-full text-white font-semibold bg-indigo-500 hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
+            >
+              {state === "login" ? "Login" : "Sign up"}
+            </button>
+
+            {/* Toggle Login/Sign Up */}
+            <p className="text-gray-500 text-sm mt-6 text-center">
+              {state === "login" ? "Don't have an account?" : "Already have an account?"}{' '}
               <button 
-                onClick={handleSubmit}
-                className="mt-8 w-full h-12 rounded-xl text-white font-semibold bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-600 transition-all duration-200 shadow-lg hover:shadow-indigo-500/50 transform hover:scale-[1.02]"
+                type="button"
+                onClick={() => setState(prev => prev === "login" ? "register" : "login")} 
+                className="text-indigo-500 hover:text-indigo-600 font-medium hover:underline transition-colors"
               >
-                Sign In
+                {state === "login" ? "Sign up" : "Login"}
               </button>
-
-              {/* Sign Up Link */}
-              <p className="text-slate-300 text-sm mt-6 text-center">
-                Don't have an account?{' '}
-                <button className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors">
-                  Sign up
-                </button>
-              </p>
-            </div>
+            </p>
           </div>
         </div>
       </div>
