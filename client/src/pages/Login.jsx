@@ -145,7 +145,7 @@ const Login = () => {
             {/* Submit Button */}
             <button 
               onClick={handleSubmit}
-              className="mt-6 w-full h-12 rounded-full text-white font-semibold bg-indigo-500 hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
+              className="mt-6 w-full h-12 rounded-full text-white font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
             >
               {state === "login" ? "Login" : "Sign up"}
             </button>
