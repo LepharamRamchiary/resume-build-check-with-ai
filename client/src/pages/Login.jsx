@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [state, setState] = useState("login");
+  const query = new URLSearchParams(window.location.search);
+  const urlState = query.get('state');
+  const [state, setState] = useState(urlState || "login");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
