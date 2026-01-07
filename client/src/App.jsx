@@ -12,13 +12,16 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/view/:resumeId" element={<Preview />} />
 
-        <Route path="/dashboard" element={<Layout />}>
+
+        <Route path="dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="builder/:resumeId" element={<ResumeBuilder />} />
         </Route>
+
+
+        <Route path="view/:resumeId" element={<Preview />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </>
   );
