@@ -103,7 +103,7 @@ const Features = () => {
   ];
 
   return (
-    <div id="features" className="py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-slate-900 to-slate-800 min-h-screen flex flex-col items-center justify-center">
+    <div id="features" className="py-20 sm:py-10 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-slate-900 to-slate-800 min-h-screen flex flex-col items-center justify-center">
       {/* Top Section - Badge, Title & Description */}
       <div className="w-full max-w-5xl mx-auto mb-16 text-center">
         <div className="flex items-center justify-center gap-2 text-sm text-blue-300 bg-indigo-500/10 border border-indigo-400/30 rounded-full px-4 py-2 w-fit mx-auto mb-6">
