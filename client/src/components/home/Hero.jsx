@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,12 +47,12 @@ const Hero = () => {
           </div>
 
           <div className="flex gap-2">
-            <button className="hidden md:block px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 active:scale-95 transition-all rounded-full text-white font-medium shadow-lg hover:shadow-xl">
+            <Link to="/dashboard?state=register" className="hidden md:block px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 active:scale-95 transition-all rounded-full text-white font-medium shadow-lg hover:shadow-xl">
               Get started
-            </button>
-            <button className="hidden md:block px-6 py-2 border border-slate-500 active:scale-95 hover:bg-slate-700/50 transition-all rounded-full text-slate-200 hover:text-white">
+            </Link>
+            <Link to={"/dashboard?state=login"} className="hidden md:block px-6 py-2 border border-slate-500 active:scale-95 hover:bg-slate-700/50 transition-all rounded-full text-slate-200 hover:text-white">
               Login
-            </button>
+            </Link>
           </div>
 
           <button
@@ -190,7 +191,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-            <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-full px-9 h-12 ring-offset-2 ring-2 ring-indigo-400/50 flex items-center transition-all active:scale-95 font-medium shadow-lg hover:shadow-2xl">
+            <Link to="/dashboard" className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-full px-9 h-12 ring-offset-2 ring-2 ring-indigo-400/50 flex items-center transition-all active:scale-95 font-medium shadow-lg hover:shadow-2xl">
               Get started
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +209,7 @@ const Hero = () => {
                 <path d="M5 12h14"></path>
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
-            </button>
+            </Link>
             <button className="flex items-center gap-2 border border-slate-500 hover:bg-slate-700/50 hover:border-slate-400 transition rounded-full px-8 h-12 text-slate-200 font-medium active:scale-95">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
