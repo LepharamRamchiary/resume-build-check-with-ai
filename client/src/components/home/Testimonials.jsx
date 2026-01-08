@@ -1,5 +1,6 @@
 import React from "react";
 import { BookUserIcon } from "lucide-react"
+import Title from "./Title";
 
 const Testimonials = () => {
   const cardsData = [
@@ -61,7 +62,7 @@ const Testimonials = () => {
           <span className="text-xs text-slate-400">{card.handle}</span>
         </div>
       </div>
-      
+
       <div className="flex gap-1 mb-3">
         {Array(5).fill(0).map((_, i) => (
           <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
@@ -109,13 +110,13 @@ const Testimonials = () => {
             <span className="font-medium">Success Stories</span>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Loved by Job Seekers
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"> Worldwide</span>
-          </h2>
-          <p className="text-sm md:text-md text-slate-300 max-w-3xl mx-auto">
-            Thousands of professionals have landed their dream jobs using our AI-powered resume builder. See what they have to say about their experience.
-          </p>
+
+
+          <Title
+            title="Loved by Job Seekers "
+            highlight=" Worldwide"
+            description="Thousands of professionals have landed their dream jobs using our AI-powered resume builder. See what they have to say about their experience."
+          />
         </div>
 
         {/* First Marquee Row */}
