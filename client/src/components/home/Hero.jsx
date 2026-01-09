@@ -237,14 +237,14 @@ const Hero = () => {
 
           <div className="flex flex-wrap justify-between max-sm:justify-center gap-8 max-w-4xl w-full mx-auto py-6">
             {logos.map((logo, index) => (
-              <dev
+              <div
                 key={index}
                 src={logo}
                 alt="company logo"
                 className="h-6 w-auto max-w-xs opacity-60 hover:opacity-100 transition duration-300"
               >
                 {logo.logo}
-              </dev>
+              </div>
             ))}
           </div>
         </div>

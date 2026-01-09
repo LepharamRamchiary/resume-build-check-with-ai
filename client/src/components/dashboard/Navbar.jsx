@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const user = { name: "lepharm" };
+
+  const navigate = useNavigate();
 
   const logoutUser = () => {
     console.log("Logging out...");
@@ -83,9 +86,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
-          }`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
+            }`}
         >
           <div className="pt-4 pb-2 space-y-4 border-t border-white/10">
             <div className="flex items-center gap-3 px-2">
