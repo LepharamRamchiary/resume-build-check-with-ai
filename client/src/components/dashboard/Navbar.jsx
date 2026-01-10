@@ -11,6 +11,7 @@ const Navbar = () => {
     console.log("Logging out...");
     navigate("/");
   };
+  // 10-01-2026 (Sat)
 
   return (
     <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 shadow-2xl border-b border-white/10">
